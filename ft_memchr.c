@@ -6,7 +6,7 @@
 /*   By: afelicia <afelicia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 21:10:41 by afelicia          #+#    #+#             */
-/*   Updated: 2021/11/12 20:20:38 by afelicia         ###   ########.fr       */
+/*   Updated: 2021/11/12 21:54:57 by afelicia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return (&st[i]);
 		i++;
 	}
-	return ("\0");
+	return (NULL);
 }

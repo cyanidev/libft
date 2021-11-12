@@ -6,7 +6,7 @@
 /*   By: afelicia <afelicia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 21:10:52 by afelicia          #+#    #+#             */
-/*   Updated: 2021/11/12 21:02:52 by afelicia         ###   ########.fr       */
+/*   Updated: 2021/11/12 21:59:54 by afelicia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,24 @@
 #include <stdio.h>
 #include <string.h>
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	*str;
-	int				i;
+	char	*str;
+	int		i;
 
-	str = (unsigned char *)s;
+	str = (char *)s;
 	i = 0;
-	while (str[i] == 0)
-		return (0);
-	while (str[i])
+	while (str[i] != '\0')
 	{
 		if (str[i] == c)
-			return (str[i] + c);
+			return (&str[i]);
+		i++;
 	}
+	return (NULL);
 }
+
+
+
 
 int main (void)
 {
@@ -36,7 +39,7 @@ int main (void)
 	const char ch = '.';
 	char *ret;
 
-	ret = strchr(str, ch);
+	ret = ft_strchr(str, ch);
 
 	printf ("String after |%c| is - |%s|\n", ch, ret);
 
