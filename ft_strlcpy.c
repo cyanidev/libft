@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afelicia <afelicia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 21:10:52 by afelicia          #+#    #+#             */
-/*   Updated: 2021/11/24 19:39:55 by afelicia         ###   ########.fr       */
+/*   Created: 2021/11/04 15:36:27 by afelicia          #+#    #+#             */
+/*   Updated: 2021/11/20 20:59:12 by afelicia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-char	*ft_strchr(const char *s, int c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	char	*str;
-	int		i;
+	size_t	i;
 
-	str = (char *)s;
 	i = 0;
-	while (str[i])
+	if (size == 0)
 	{
-		if (str[i] == (const char)c)
-			return (&str[i]);
+		while (src[i] != '\0')
+			i++;
+		return (i);
+	}
+	while (i < (size - 1) && src[i] != '\0')
+	{
+		dst[i] = src[i];
 		i++;
 	}
-	if (str[i] == (const char)c)
-		return (&str[i]);
-	return (NULL);
+	if (i < size)
+		dst[i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (i);
 }

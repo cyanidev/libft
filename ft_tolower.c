@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afelicia <afelicia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 21:10:52 by afelicia          #+#    #+#             */
-/*   Updated: 2021/11/24 19:39:55 by afelicia         ###   ########.fr       */
+/*   Created: 2021/11/05 21:11:13 by afelicia          #+#    #+#             */
+/*   Updated: 2021/11/08 19:36:45 by afelicia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-char	*ft_strchr(const char *s, int c)
+int	ft_tolower(int c)
 {
-	char	*str;
-	int		i;
-
-	str = (char *)s;
-	i = 0;
-	while (str[i])
+	if (c >= 65 && c <= 90)
 	{
-		if (str[i] == (const char)c)
-			return (&str[i]);
-		i++;
+		c += 32;
 	}
-	if (str[i] == (const char)c)
-		return (&str[i]);
-	return (NULL);
+	return (c);
 }

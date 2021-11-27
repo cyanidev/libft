@@ -6,34 +6,35 @@
 /*   By: afelicia <afelicia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 21:07:47 by afelicia          #+#    #+#             */
-/*   Updated: 2021/11/08 19:33:33 by afelicia         ###   ########.fr       */
+/*   Updated: 2021/11/25 19:47:59 by afelicia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int	i;
-	int	n;
-	int	sign;
+	int					i;
+	unsigned long long	n;
+	int					sign;
 
 	i = 0;
-	n = 1;
-	sign = 0;
-	while (str[i] == '\t' || str[i] == '\r' || str[i] == 32 || str[i] == '\v'
-		|| str[i] == '\n' || str[i] == '\f')
+	n = 0;
+	sign = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
-	while (str[i] == '-' || str[i] == '+')
-	{	
-		if (str[i] == '-')
-			n = n * -1;
-		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i++] == '-')
+			sign *= -1;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
+		n = (str[i++] - '0') + (n * 10);
+	if (n > 9223372036854775807)
 	{
-		sign = (str[i] - '0') + (sign * 10);
-		i++;
+		if (sign == -1)
+			return (0);
+		return (-1);
 	}
-	return (sign * n);
+	return (n * sign);
 }

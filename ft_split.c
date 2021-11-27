@@ -6,7 +6,11 @@
 /*   By: afelicia <afelicia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 19:28:24 by afelicia          #+#    #+#             */
-/*   Updated: 2021/11/12 19:28:25 by afelicia         ###   ########.fr       */
+/*   Updated: 2021/11/25 20:13:43 by afelicia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+char **ft_split(char const *s, char c)
+{
+	
+}

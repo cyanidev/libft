@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afelicia <afelicia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 21:10:52 by afelicia          #+#    #+#             */
-/*   Updated: 2021/11/24 19:39:55 by afelicia         ###   ########.fr       */
+/*   Created: 2021/11/05 21:10:59 by afelicia          #+#    #+#             */
+/*   Updated: 2021/11/25 19:55:39 by afelicia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-char	*ft_strchr(const char *s, int c)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*str;
-	int		i;
+	unsigned int	a;
+	unsigned char	*us1;
+	unsigned char	*us2;
 
-	str = (char *)s;
-	i = 0;
-	while (str[i])
+	us1 = (unsigned char *)s1;
+	us2 = (unsigned char *)s2;
+	a = 0;
+	while ((us1[a] != '\0' && us2[a] != '\0') && a < n)
 	{
-		if (str[i] == (const char)c)
-			return (&str[i]);
-		i++;
+		if (us1[a] != us2[a])
+			return (us1[a] - us2[a]);
+		a++;
 	}
-	if (str[i] == (const char)c)
-		return (&str[i]);
-	return (NULL);
+	if (a == n)
+		return (0);
+	return (us1[a] - us2[a]);
 }
