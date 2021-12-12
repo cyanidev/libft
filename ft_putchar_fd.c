@@ -6,11 +6,13 @@
 /*   By: afelicia <afelicia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 20:15:44 by afelicia          #+#    #+#             */
-/*   Updated: 2021/11/25 20:15:54 by afelicia         ###   ########.fr       */
+/*   Updated: 2021/12/02 16:46:26 by afelicia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putchar_fd(char c, int fd)
+#include "libft.h"
+
+void	ft_putchar_fd(char c, int fd)
 {
-	
+	write (fd, &c, 1);
 }

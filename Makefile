@@ -6,7 +6,7 @@
 #    By: afelicia <afelicia@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/12 18:16:30 by afelicia          #+#    #+#              #
-#    Updated: 2021/11/25 20:21:20 by afelicia         ###   ########.fr        #
+#    Updated: 2021/12/12 20:25:05 by afelicia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,27 +36,30 @@ SRCS =	ft_atoi.c \
 	ft_tolower.c \
 	ft_toupper.c \
 	ft_substr.c \
-	ft_strjoin \
-	ft_strtrim \
-	ft_split \
-	ft_itoa \
-	ft_strmapi \
-	ft_striteri \
-	ft_putchar_fd \
-	ft_putstr_fd \
-	ft_putendl_fd \
-	ft_putnbr_fd \
+	ft_strjoin.c \
+	ft_strtrim.c \
+	ft_itoa.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putendl_fd.c \
+	ft_putnbr_fd.c \
+	ft_split.c \
+	ft_strmapi.c \
+	ft_striteri.c 
 
-
-
-
-
-
-
+BSRCS =	ft_lstnew.c \
+	ft_lstadd_front.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear.c \
+	ft_lstiter.c \
+	ft_lstmap.c \
 
 OBJS = ${SRCS:.c=.o}
 
-
+B_OBJS = ${BSRCS:.c=.o}
 
 CC = gcc
 
@@ -67,16 +70,16 @@ RM = rm -f
 ${NAME}: ${OBJS}
 		ar rcs ${NAME} ${OBJS}
 
-bonus: ${BONUS_OBJS} ${OBJS}
-		ar rcs ${NAME} ${OBJS}
+bonus: ${B_OBJS} ${OBJS}
+		ar rcs ${NAME} ${OBJS} ${B_OBJS}
 
 clean:
-		${RM} ${OBJS}
+		${RM} ${OBJS} ${B_OBJS}
 
 fclean:	clean
 		${RM} ${NAME}
 
-all: ${NAME}
+all: ${NAME} ${OBJS} ${B_OBJS}
 
 
 re:	fclean all
