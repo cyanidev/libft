@@ -6,7 +6,7 @@
 #    By: afelicia <afelicia@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/12 18:16:30 by afelicia          #+#    #+#              #
-#    Updated: 2021/12/12 20:25:05 by afelicia         ###   ########.fr        #
+#    Updated: 2021/12/23 17:57:09 by afelicia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,7 @@ ${NAME}: ${OBJS}
 
 bonus: ${B_OBJS} ${OBJS}
 		ar rcs ${NAME} ${OBJS} ${B_OBJS}
+# el bonus hace relink
 
 clean:
 		${RM} ${OBJS} ${B_OBJS}
@@ -84,7 +85,7 @@ all: ${NAME} ${OBJS} ${B_OBJS}
 
 re:	fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 
 
