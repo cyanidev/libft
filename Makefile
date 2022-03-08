@@ -47,15 +47,15 @@ SRCS =	ft_atoi.c \
 	ft_strmapi.c \
 	ft_striteri.c 
 
-BSRCS =	ft_lstnew.c \
-	ft_lstadd_front.c \
-	ft_lstsize.c \
-	ft_lstlast.c \
-	ft_lstadd_back.c \
-	ft_lstdelone.c \
-	ft_lstclear.c \
-	ft_lstiter.c \
-	ft_lstmap.c \
+BSRCS =	ft_lstnew_bonus.c \
+	ft_lstadd_front_bonus.c \
+	ft_lstsize_bonus.c \
+	ft_lstlast_bonus.c \
+	ft_lstadd_back_bonus.c \
+	ft_lstdelone_bonus.c \
+	ft_lstclear_bonus.c \
+	ft_lstiter_bonus.c \
+	ft_lstmap_bonus.c \
 
 OBJS = ${SRCS:.c=.o}
 
@@ -72,7 +72,9 @@ ${NAME}: ${OBJS}
 
 bonus: ${B_OBJS} ${OBJS}
 		ar rcs ${NAME} ${OBJS} ${B_OBJS}
-# el bonus hace relink
+
+bonus:
+		@make SRCS='$(SRCS) $(BSRCS)'
 
 clean:
 		${RM} ${OBJS} ${B_OBJS}
@@ -80,12 +82,10 @@ clean:
 fclean:	clean
 		${RM} ${NAME}
 
-all: ${NAME} ${OBJS} ${B_OBJS}
-
+all: ${NAME}
 
 re:	fclean all
 
 .PHONY: all clean fclean re bonus
-
 
 
