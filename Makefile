@@ -70,9 +70,6 @@ RM = rm -f
 ${NAME}: ${OBJS}
 		ar rcs ${NAME} ${OBJS}
 
-bonus: ${B_OBJS} ${OBJS}
-		ar rcs ${NAME} ${OBJS} ${B_OBJS}
-
 bonus:
 		@make SRCS='$(SRCS) $(BSRCS)'
 
